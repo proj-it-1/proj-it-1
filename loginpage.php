@@ -59,7 +59,7 @@
         $result = $conn->query($view);
 
         if($result->num_rows>0){
-            $update = "UPDATE `users` SET `$onstat` = '' WHERE email = '$email'";
+            $update = "UPDATE `users` SET `onstat` = '$onstat' WHERE email = '$email'";
             $conn->query($update);
 
             echo "<script>window.location.href='index.php'</script>";
@@ -69,6 +69,9 @@
 					alert("Wrong Email of Password!");
 			    </script>
 			<?php
+            $_SESSION['email'] = "";
+            $_SESSION['onstat'] = "";
+            echo "<script>window.location.href='loginpage.php'</script>";
         }
     }
 ?>

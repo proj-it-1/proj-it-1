@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2022 at 02:41 AM
+-- Generation Time: Feb 22, 2022 at 04:41 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -108,7 +108,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `password`, `email`, `role`, `createdat`, `updatedat`, `status`, `onstat`) VALUES
-(1, '123', 'spotifyapp0706@gmail.com', 'admin', '2022-02-21 00:00:00', '2022-02-21 00:00:00', 'APPROVED', 'OFFLINE');
+(1, '123', 'spotifyapp0706@gmail.com', 'admin', '2022-02-21 00:00:00', '2022-02-21 00:00:00', 'APPROVED', 'OFFLINE'),
+(2, '123', 'bonangelo1@gmail.com', '', '2022-02-22 10:58:54', '2022-02-22 10:58:54', 'APPROVED', 'OFFLINE');
 
 -- --------------------------------------------------------
 
@@ -126,15 +127,16 @@ CREATE TABLE `user_profile` (
   `zip` varchar(10) NOT NULL,
   `phonenumber` bigint(11) UNSIGNED ZEROFILL NOT NULL,
   `createdat` datetime NOT NULL,
-  `updateat` datetime NOT NULL
+  `updatedat` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_profile`
 --
 
-INSERT INTO `user_profile` (`user_id`, `fname`, `lname`, `address`, `city`, `state`, `zip`, `phonenumber`, `createdat`, `updateat`) VALUES
-(1, 'Spotify', 'App', 'Sitio Tabing Ilog', 'Antipolo', 1, '1870', 09693282786, '2022-02-21 14:20:40', '2022-02-21 14:21:31');
+INSERT INTO `user_profile` (`user_id`, `fname`, `lname`, `address`, `city`, `state`, `zip`, `phonenumber`, `createdat`, `updatedat`) VALUES
+(1, 'Spotify', 'App', 'Sitio Tabing Ilog', 'Antipolo', 1, '1870', 09693282786, '2022-02-21 14:20:40', '2022-02-21 14:21:31'),
+(2, 'Bon Angelo', 'Rebadavia', 'Sitio Kasapi Bagong Nayon', 'Antipolo City', 3, '1870', 09391433677, '2022-02-22 10:58:54', '2022-02-22 10:58:54');
 
 --
 -- Indexes for dumped tables
@@ -174,7 +176,7 @@ ALTER TABLE `states_tbl`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
