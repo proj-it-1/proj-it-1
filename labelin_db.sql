@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2022 at 02:12 AM
+-- Generation Time: Feb 22, 2022 at 02:41 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -94,7 +94,6 @@ INSERT INTO `states_tbl` (`state_id`, `state_name`) VALUES
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(60) NOT NULL,
   `password` varchar(60) NOT NULL,
   `email` varchar(60) NOT NULL,
   `role` varchar(10) NOT NULL,
@@ -108,8 +107,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `role`, `createdat`, `updatedat`, `status`, `onstat`) VALUES
-(1, 'admin', '123', 'spotifyapp0706@gmail.com', 'admin', '2022-02-21 00:00:00', '2022-02-21 00:00:00', 'APPROVED', 'OFFLINE');
+INSERT INTO `users` (`user_id`, `password`, `email`, `role`, `createdat`, `updatedat`, `status`, `onstat`) VALUES
+(1, '123', 'spotifyapp0706@gmail.com', 'admin', '2022-02-21 00:00:00', '2022-02-21 00:00:00', 'APPROVED', 'OFFLINE');
 
 -- --------------------------------------------------------
 

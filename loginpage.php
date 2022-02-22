@@ -1,6 +1,6 @@
 <?php
 	session_start();
-    if($_SESSION['username'] !==""){
+    if($_SESSION['email'] !==""){
 		header("location:index.php");
 	}
 ?>
@@ -16,10 +16,10 @@
                 <table >
                     <tr>
                         <td>
-                            <p> Username </p>
+                            <p> Email </p>
                         </td>
                         <td>
-                            <input type="text" name="uname" required>    
+                            <input type="text" name="email" required>    
                         </td>  
                     </tr>
 
@@ -48,25 +48,25 @@
     include "conn.php";
 
 	if(isset($_POST['login'])){
-		$user=$_POST['uname'];
+		$email=$_POST['email'];
 		$pass=$_POST['pword'];
 
-        $_SESSION['username'] = $user;
+        $_SESSION['email'] = $email;
         $_SESSION['onstat'] = "ONLINE";
         $onstat = $_SESSION['onstat'];
         
-        $view="SELECT * FROM users WHERE (username = '$user' AND password = '$pass') AND status = 'APPROVED'";
+        $view="SELECT * FROM users WHERE (email = '$email' AND password = '$pass') AND status = 'APPROVED'";
         $result = $conn->query($view);
 
         if($result->num_rows>0){
-            $update = "UPDATE `users` SET `$onstat` = '' WHERE username = '$user'";
+            $update = "UPDATE `users` SET `$onstat` = '' WHERE email = '$email'";
             $conn->query($update);
 
             echo "<script>window.location.href='index.php'</script>";
         }else{
             ?>
 				<script>
-					alert("Wrong Username of Password!");
+					alert("Wrong Email of Password!");
 			    </script>
 			<?php
         }

@@ -17,7 +17,7 @@
 </html>
 
 <?php
-    $uname = $_SESSION['username'];
+    $uname = $_SESSION['email'];
     $onstat = $_SESSION['onstat'];
     echo $uname . " ";
     echo $onstat;
