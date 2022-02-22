@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    
 ?>
 
 <html>
@@ -17,5 +18,7 @@
 
 <?php
     $uname = $_SESSION['username'];
-    echo $uname;
+    $onstat = $_SESSION['onstat'];
+    echo $uname . " ";
+    echo $onstat;
 ?>

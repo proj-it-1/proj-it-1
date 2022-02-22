@@ -1,5 +1,8 @@
 <?php
 	session_start();
+    if($_SESSION['username'] !==""){
+		header("location:index.php");
+	}
 ?>
 
 <html>
@@ -49,11 +52,16 @@
 		$pass=$_POST['pword'];
 
         $_SESSION['username'] = $user;
+        $_SESSION['onstat'] = "ONLINE";
+        $onstat = $_SESSION['onstat'];
         
         $view="SELECT * FROM users WHERE (username = '$user' AND password = '$pass') AND status = 'APPROVED'";
         $result = $conn->query($view);
 
         if($result->num_rows>0){
+            $update = "UPDATE `users` SET `$onstat` = '' WHERE username = '$user'";
+            $conn->query($update);
+
             echo "<script>window.location.href='index.php'</script>";
         }else{
             ?>
