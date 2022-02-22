@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2022 at 09:18 AM
+-- Generation Time: Feb 22, 2022 at 02:12 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -123,7 +123,7 @@ CREATE TABLE `user_profile` (
   `lname` varchar(40) NOT NULL,
   `address` varchar(60) NOT NULL,
   `city` varchar(60) NOT NULL,
-  `state` varchar(60) NOT NULL,
+  `state` int(11) NOT NULL,
   `zip` varchar(10) NOT NULL,
   `phonenumber` bigint(11) UNSIGNED ZEROFILL NOT NULL,
   `createdat` datetime NOT NULL,
@@ -135,7 +135,7 @@ CREATE TABLE `user_profile` (
 --
 
 INSERT INTO `user_profile` (`user_id`, `fname`, `lname`, `address`, `city`, `state`, `zip`, `phonenumber`, `createdat`, `updateat`) VALUES
-(1, 'Spotify', 'App', 'Sitio Tabing Ilog', 'Antipolo', 'United States', '1870', 09693282786, '2022-02-21 14:20:40', '2022-02-21 14:21:31');
+(1, 'Spotify', 'App', 'Sitio Tabing Ilog', 'Antipolo', 1, '1870', 09693282786, '2022-02-21 14:20:40', '2022-02-21 14:21:31');
 
 --
 -- Indexes for dumped tables
@@ -157,7 +157,9 @@ ALTER TABLE `users`
 -- Indexes for table `user_profile`
 --
 ALTER TABLE `user_profile`
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `state` (`state`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -183,7 +185,8 @@ ALTER TABLE `users`
 -- Constraints for table `user_profile`
 --
 ALTER TABLE `user_profile`
-  ADD CONSTRAINT `user_profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `user_profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `user_profile_ibfk_2` FOREIGN KEY (`state`) REFERENCES `states_tbl` (`state_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
