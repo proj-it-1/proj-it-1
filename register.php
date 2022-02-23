@@ -192,11 +192,34 @@ $result = mysqli_query($conn,$sql);
 								        if(mysqli_query($conn,$sql)==TRUE)
 								        {
                                             $nuserid=$conn->insert_id;
-                                            $sqlnuser = "INSERT INTO user_profile (user_id,fname,lname,address,city,state,zip,phonenumber,createdat,updatedat,status,onstat)
-												VALUES ('$nuserid','$firstName','$lastName','$address','$city',$state,'$zip',$phoneNum,'$datenow','$datenow','APPROVED','OFFLINE')";
+                                            $sqlnuser = "INSERT INTO user_profile (user_id,fname,lname,address,city,state,zip,phonenumber,createdat,updatedat)
+												VALUES ('$nuserid','$firstName','$lastName','$address','$city',$state,'$zip',$phoneNum,'$datenow','$datenow')";
 
                                             if(mysqli_query($conn,$sqlnuser)==TRUE)
                                             {
+                                                //sending email
+                                                $textmessage = "Please verify your account here: http://localhost/proj-it-1/authentication.php?emailadd=$emailAdd";
+                                                
+                                                //sends email of verification
+                                                require_once('PHPMailer/PHPMailerAutoload.php');
+                                                
+                                                $mail = new PHPMailer();
+                                                $mail->isSMTP();
+                                                $mail->SMTPDebug = 3;
+                                                $mail->SMTPAuth = true;
+                                                $mail->SMTPSecure = 'ssl';
+                                                $mail->Host = 'smtp.gmail.com';
+                                                $mail->Port = '465';
+                                                $mail->isHTML();
+                                                $mail->Username = 'olfuprojit1@gmail.com';
+                                                $mail->Password = 'projit123';
+                                                $mail->SetFrom('no-reply@howcode.org');
+                                                $mail->Subject = 'Authentication';
+                                                $mail->Body = $textmessage;
+                                                $mail->AddAddress($emailAdd);
+                                                
+                                                $mail->Send();
+
                                                 echo "<script language='javascript'>alert('You successfully Registered!')</script>";	
                                                 echo "<script>window.location.href='index.php';</script>";
                                             }
