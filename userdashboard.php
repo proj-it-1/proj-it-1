@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-
-<?php
-    session_start();
-    include "conn.php";
-?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,116 +12,84 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/userdashboard.css">
 
 </head>
 <body>
-
+    
 <!-- header section starts  -->
 
 <header>
 
-<div class="header-1">
+    <div class="header-1">
+    
+            <div class="icons">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-pinterest"></a>
+                <a href="#" class="fab fa-youtube"></a>
+            </div>
 
-        <div class="icons">
-            <a href="https://www.facebook.com/Labelinusa" target="_blank" class="fab fa-facebook-f"></a>
-            <a href="https://www.instagram.com/labelinus/" target="_blank" class="fab fa-instagram"></a>
-            <a href="https://twitter.com/Labelinusa" target="_blank" class="fab fa-twitter"></a>
-            <a href="https://www.pinterest.ph/labelin2/" target="_blank" class="fab fa-pinterest"></a>
-            <a href="https://www.youtube.com/channel/UCUsRAPvcbefI_vldBEAEumQ" target="_blank" class="fab fa-youtube"></a>
-        </div>
+            <div class="icons">
+                <div id="login-btn" class="fas fa-user"></div>
+                <a href="#" class="fas fa-shopping-cart"></a>
+            </div>
 
-        <div class="icons">
-            <div id="login-btn" class="fas fa-user"></div>
-            <a href="#" class="fas fa-shopping-cart"></a>
-        </div>
+    </div>
 
-</div>
+    <div class="header-2">
 
-<div class="header-2">
+        <a href="#" class="logo"> <img src="image/labelin-logo.png"> </a>
 
-    <a href="#" class="logo"> <img src="image/labelin-logo.png"> </a>
+        <div id="menu" class="fas fa-bars" onclick="navToggle();"></div>
 
-    <div id="menu" class="fas fa-bars" onclick="navToggle();"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a onclick="navToggle();" href="index.html">home</a></li>
+                <li><a onclick="navToggle();" href="gallery.html">gallery</a></li>
+                <li><a onclick="navToggle();" href="materials.html">materials</a></li>
+                <li><a onclick="navToggle();" href="design.html">design service</a></li>
+                <li><a onclick="navToggle();" href="contact.html">contact us</a></li>
+            </ul>
+        </nav>
 
-    <nav class="navbar">
-        <ul>
-                <li><a onclick="navToggle();" href="index.php">home</a></li>
-                <li><a onclick="navToggle();" href="gallery.php">gallery</a></li>
-                <li><a onclick="navToggle();" href="materials.php">materials</a></li>
-                <li><a onclick="navToggle();" href="design.php">design service</a></li>
-                <li><a onclick="navToggle();" href="contact.php">contact us</a></li>
-        </ul>
-    </nav>
-
-</div>
+    </div>
 
 </header>
-
-<!-- header section ends -->
     
 <!-- header section ends -->
 
 
+
 <!-- login form  -->
+
 <div class="login-form-container">
 
-    <!-- for logged in and unlogged users -->
-    <?php 
-        if(!$_SESSION['email']){
-            ?>
-                <div id="close-login-btn" class="fas fa-times"></div>
-                <form method= POST action="login.php">
-                    <h3>sign in</h3>
-                    <h3>registered customer</h3>
-                    
-                    <span>email address</span>
-                    <input type="email" name="email" class="box" placeholder="Enter Your Email" id="" required>
-                    <span>password</span>
-                    <input type="password" name="password" class="box" placeholder="Enter Your Password" id="" required>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id="remember-me">
-                        <label for="remember-me"> remember me</label>
-                    </div>
-                    <input type="submit" name="login" value="login" class="btn">
-                    <p>forget password ? <a href="#">click here</a></p>
-                    <p>don't have an account ? <a href="signup.php">create one</a></p>
-                </form>
-            <?php
-        }else if($_SESSION['email']==""){
-            ?>
-                <div id="close-login-btn" class="fas fa-times"></div>
-                <form method= POST action="login.php">
-                    <h3>sign in</h3>
-                    <h3>registered customer</h3>
-                    
-                    <span>email address</span>
-                    <input type="email" name="email" class="box" placeholder="Enter Your Email" id="" required>
-                    <span>password</span>
-                    <input type="password" name="password" class="box" placeholder="Enter Your Password" id="" required>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id="remember-me">
-                        <label for="remember-me"> remember me</label>
-                    </div>
-                    <input type="submit" name="login" value="login" class="btn">
-                    <p>forget password ? <a href="#">click here</a></p>
-                    <p>don't have an account ? <a href="signup.php">create one</a></p>
-                </form>
-            <?php
-        }else{
-            ?>
-                <div id="close-login-btn" class="fas fa-times"></div>
-                <h3><a onclick="navToggle();" href="profile.php">Profile</a></h3>
-                <br>
-                <h3><a onclick="navToggle();" href="logout.php">Logout</a></h3>
-            <?php
-        }
-    ?>
-    <!-- end of logged in and unlogged users code -->
+    <div id="close-login-btn" class="fas fa-times"></div>
+
+    <form action="">
+        <h3>sign in</h3>
+        <h3>registered customer</h3>
+
+        <span>email address</span>
+        <input type="email" name="" class="box" placeholder="enter your email" id="">
+        <span>password</span>
+        <input type="password" name="" class="box" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn">
+        <p>forget password ? <a href="#">click here</a></p>
+        <p>don't have an account ? <a href="signup.html">create one</a></p>
+    </form>
+
 </div>
 
 
 <!-- home section starts  -->
+
 <section class="home" id="home">
 
     <div class="row">
@@ -153,10 +115,8 @@
     </div>
 
 </section>
+
 <!-- home section end  -->
-
-
-<!-- how to order section starts  -->
 
 <!-- how to order section starts  -->
 
@@ -217,10 +177,12 @@
         </div>
 
 </section>
+
+
 <!-- how to order section ends -->
 
-
 <!-- featured section starts  -->
+
 <section class="featured" id="featured">
 
     <h1 class="heading"> <span>featured labels</span> </h1>
@@ -355,7 +317,7 @@
         <div class="swiper-button-prev"></div>
 
         <div class="featured-create">
-            <a href="gallery.php" class="btn-featured">View more labels</a>
+            <a href="#" class="btn-featured">View more labels</a>
         </div>
 
     </div>
@@ -365,43 +327,17 @@
 <!-- featured section ends -->
 
 <!-- contact us section starts -->
-<form method= POST action="feedback.php">
-<section class="contact">
-    <div class="wrapper-contact">
-        <div class="title-contact">
-            <h1 class="heading"> <span>HAVE A QUESTIONS?</span> </h1>
-            <p>FEEL FREE TO CONTACT US. OUR LABEL EXPERTS WILL BE HAPPY <br> TO ASSIST YOU.  </p>
-        </div>
 
-        <div class="form-contact">
-            <div class="inputfield">
-                <label>First Name</label>
-                <input type="text" class="input" name="fname">
-            </div>  
-            <div class="inputfield">
-                <label>Last Name</label>
-                <input type="text" class="input" name="lname">
-            </div>  
-            <div class="inputfield">
-                <label>Email</label>
-                <input type="email" class="input" name="emailadd" required>
-            </div>  
-            <div class="inputfield">
-                <label>Phone Number</label>
-                <input type="text" class="input" name="pnum" maxlength="11" required>
-            </div> 
-            <div class="inputfield">
-                <label>Message</label>
-                <textarea type="textarea" class="textarea" name="msg" required></textarea>
-            </div>
-            
-            <div class="inputfield">
-            <input type="submit" value="SUBMIT" class="btn" name="submit">
-            </div>
-        </div>
-    </div>	
+<section class="contact">
+
+    <form action="">
+        <h3>subscribe for latest updates</h3>
+        <input type="email" name="" placeholder="enter your email" id="" class="box">
+        <input type="submit" value="subscribe" class="btn">
+    </form>
+
 </section>
-</form>
+
 <!-- contact section ends -->
 
 
@@ -420,11 +356,11 @@
 
         <div class="box">
             <h3>navigation</h3>
-            <a href="index.php"> <i class="fas fa-arrow-right"></i> home </a>
-            <a href="gallery.php"> <i class="fas fa-arrow-right"></i> gallery </a>
-            <a href="materials.php"> <i class="fas fa-arrow-right"></i> materials </a>
-            <a href="design.php"> <i class="fas fa-arrow-right"></i> design service </a>
-            <a href="contact.php"> <i class="fas fa-arrow-right"></i> contact us </a>
+            <a href="index.html"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="gallery.html"> <i class="fas fa-arrow-right"></i> gallery </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> materials </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> design service </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> contact us </a>
         </div>
 
         <div class="box">

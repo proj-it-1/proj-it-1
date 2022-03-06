@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2022 at 03:16 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.6
+-- Generation Time: Feb 24, 2022 at 05:49 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `labelin_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `date` datetime NOT NULL,
+  `user` varchar(60) NOT NULL,
+  `action` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`date`, `user`, `action`) VALUES
+('2022-02-24 11:25:48', 'spotifyapp0706@gmail.com', ' Admin Login'),
+('2022-02-24 11:32:53', 'spotifyapp0706@gmail.com', ' Admin Login'),
+('2022-02-24 11:38:37', 'spotifyapp0706@gmail.com', ' Admin Login'),
+('2022-02-24 11:56:20', 'spotifyapp0706@gmail.com', ' Admin Login');
 
 -- --------------------------------------------------------
 
@@ -40,51 +61,54 @@ CREATE TABLE `states_tbl` (
 INSERT INTO `states_tbl` (`state_id`, `state_name`) VALUES
 (1, 'Alabama'),
 (2, 'Alaska'),
-(3, 'Delaware'),
-(4, 'Florida'),
-(5, 'Georgia'),
-(6, 'Hawaii'),
-(7, 'Idaho'),
-(8, 'Illinois'),
-(9, 'Indiana'),
-(10, 'Iowa'),
-(11, 'Kansas'),
-(12, 'Kentucky'),
-(13, 'Louisiana'),
-(14, 'Maine'),
-(15, 'Maryland'),
-(16, 'Massachusetts'),
-(17, 'Michigan'),
-(18, 'Minnesota'),
-(19, 'Mississippi'),
-(20, 'Missouri'),
-(21, 'Montana'),
-(22, 'Nebraska'),
-(23, 'Nevada'),
-(24, 'New Hampshire'),
-(25, 'New Jersey'),
-(26, 'New Mexico'),
-(27, 'New York'),
-(28, 'North Carolina'),
-(29, 'North Dakota'),
-(30, 'Ohio'),
-(31, 'Oklahoma'),
-(32, 'Oregon'),
-(33, 'Pennsylvania'),
-(34, 'Rhode Island'),
-(35, 'South Carolina'),
-(36, 'South Dakota'),
-(37, 'Tennessee'),
-(38, 'Texas'),
-(39, 'Utah'),
-(40, 'Vermont'),
-(41, 'Virginia'),
-(42, 'Washington'),
-(43, 'West Virginia'),
-(44, 'Wisconsin'),
-(45, 'Wyoming'),
-(46, 'Arizona'),
-(47, 'Arkansas');
+(3, 'Arizona'),
+(4, 'Arkansas'),
+(5, 'California'),
+(6, 'Colorado'),
+(7, 'Connecticut'),
+(8, 'Delaware'),
+(9, 'Florida'),
+(10, 'Georgia'),
+(11, 'Hawaii'),
+(12, 'Idaho'),
+(13, 'Illinois'),
+(14, 'Indiana'),
+(15, 'Iowa'),
+(16, 'Kansas'),
+(17, 'Kentucky'),
+(18, 'Louisiana'),
+(19, 'Maine'),
+(20, 'Maryland'),
+(21, 'Massachusetts'),
+(22, 'Michigan'),
+(23, 'Minnesota'),
+(24, 'Mississippi'),
+(25, 'Mssouri'),
+(26, 'Montana'),
+(27, 'Nebraska'),
+(28, 'Nevada'),
+(29, 'New Hampshire'),
+(30, 'New Jersey'),
+(31, 'New Mexico'),
+(32, 'New York'),
+(33, 'North Carolina'),
+(34, 'North Dakota'),
+(35, 'Ohio'),
+(36, 'Oklahoma'),
+(37, 'Oregon'),
+(38, 'Pennsylvania'),
+(39, 'Rhode Island'),
+(40, 'South Carolina'),
+(41, 'South Dakota'),
+(42, 'Tennessee'),
+(43, 'Texas'),
+(44, 'Utah'),
+(45, 'Vermont'),
+(46, 'Virginia'),
+(47, 'Washington'),
+(48, 'West Virginia'),
+(49, 'Wisconsin'),
+(50, 'Wyoming');
 
 -- --------------------------------------------------------
 
@@ -99,8 +123,8 @@ CREATE TABLE `users` (
   `role` varchar(10) NOT NULL,
   `createdat` datetime NOT NULL,
   `updatedat` datetime NOT NULL,
-  `status` varchar(40) NOT NULL DEFAULT 'PENDING',
-  `onstat` varchar(20) NOT NULL DEFAULT 'OFFLINE'
+  `status` varchar(40) NOT NULL,
+  `onstat` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -108,11 +132,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `password`, `email`, `role`, `createdat`, `updatedat`, `status`, `onstat`) VALUES
-(1, '123', 'bonangelo12@gmail.com', '', '2022-02-23 09:45:00', '2022-02-23 09:45:00', 'APPROVED', 'OFFLINE'),
-(2, '123', 'bonangelo123@gmail.com', '', '2022-02-23 09:50:26', '2022-02-23 09:50:26', 'PENDING', 'OFFLINE'),
-(3, '123', 'bonangelo1234@gmail.com', '', '2022-02-23 09:51:32', '2022-02-23 09:51:32', 'PENDING', 'OFFLINE'),
-(4, '123', 'bonangelo2@gmail.com', '', '2022-02-23 09:53:59', '2022-02-23 09:53:59', 'PENDING', 'OFFLINE'),
-(5, '123', 'bonangelo1@gmail.com', '', '2022-02-23 09:56:35', '2022-02-23 09:56:35', 'APPROVED', 'ONLINE');
+(1, '123', 'spotifyapp0706@gmail.com', 'ADMIN', '2022-02-21 00:00:00', '2022-02-21 00:00:00', 'APPROVED', 'ONLINE'),
+(2, '123', 'bonangelo1@gmail.com', '', '2022-02-22 10:58:54', '2022-02-22 10:58:54', 'APPROVED', 'OFFLINE'),
+(3, 'as', 'as@gmail.com', '', '2022-02-23 10:10:09', '2022-02-23 10:10:09', '', ''),
+(8, '12', 'lenard@gmail.com', 'USER', '2022-02-23 11:44:17', '2022-02-23 11:44:17', 'PENDING', 'OFFLINE');
 
 -- --------------------------------------------------------
 
@@ -138,11 +161,9 @@ CREATE TABLE `user_profile` (
 --
 
 INSERT INTO `user_profile` (`user_id`, `fname`, `lname`, `address`, `city`, `state`, `zip`, `phonenumber`, `createdat`, `updatedat`) VALUES
-(1, 'Bon Angelo', 'Rebadavia', 'Sitio Manggahan', 'Antipolo City', 3, '1870', 09000000000, '2022-02-23 09:45:00', '2022-02-23 09:45:00'),
-(2, 'Ryl', 'Riomalos', 'Sitio Manggahan', 'Antipolo City', 7, '1870', 09000000001, '2022-02-23 09:50:26', '2022-02-23 09:50:26'),
-(3, 'Bon Angelo', 'Rebadavia', 'Sitio Manggahan', 'Antipolo City', 5, '1870', 09000000011, '2022-02-23 09:51:32', '2022-02-23 09:51:32'),
-(4, 'Bon Angelo', 'Rebadavia', 'Sitio Manggahan', 'Antipolo City', 8, '1870', 09000000111, '2022-02-23 09:53:59', '2022-02-23 09:53:59'),
-(5, 'Bon Angelo', 'Rebadavia', 'Sitio Manggahan', 'Antipolo City', 4, '1870', 09000001111, '2022-02-23 09:56:35', '2022-02-23 09:56:35');
+(1, 'Spotify', 'App', 'Sitio Tabing Ilog', 'Antipolo', 1, '1870', 09693282786, '2022-02-21 14:20:40', '2022-02-21 14:21:31'),
+(2, 'Bon Angelo', 'Rebadavia', 'Sitio Kasapi Bagong Nayon', 'Antipolo City', 3, '1870', 09391433677, '2022-02-22 10:58:54', '2022-02-22 10:58:54'),
+(8, 'Lenard', 'Detorio', 'Sweet', 'Home', 1, '42069', 11111111111, '2022-02-23 11:44:17', '2022-02-23 11:44:17');
 
 --
 -- Indexes for dumped tables
@@ -176,13 +197,13 @@ ALTER TABLE `user_profile`
 -- AUTO_INCREMENT for table `states_tbl`
 --
 ALTER TABLE `states_tbl`
-  MODIFY `state_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `state_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
